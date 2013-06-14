@@ -1,3 +1,6 @@
+= render partial: '/shared/errors', locals: {object: @feed}
+
+
 = form_for @feed do |f|
 	= f.label :name
 	= f.text_field :name
