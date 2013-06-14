@@ -20,5 +20,5 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true, length { in: 5..20 }
+  validates :password, presence: true, length: { in: 5..20 }
 end
