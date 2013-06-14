@@ -1,0 +1,9 @@
+%p
+  = "#{@user.name}"
+  's Feeds:
+%p
+  %ul
+    - @user.teams.each do |team|
+      - team.feeds.each do |feed|
+        %li
+          = link_to "#{feed['name']}", feed_path(feed)

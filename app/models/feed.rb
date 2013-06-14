@@ -12,5 +12,8 @@
 #
 
 class Feed < ActiveRecord::Base
-  attr_accessible :feed_url, :name, :published_at, :summary
+  attr_accessible :feed_url, :name, :published_at, :summary, :site_id
+
+  has_and_belongs_to_many :users
+  belongs_to :site
 end

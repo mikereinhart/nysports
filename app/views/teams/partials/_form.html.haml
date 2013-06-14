@@ -1,0 +1,17 @@
+= form_for @team do |f|
+  = f.label :name
+  = f.text_field :name
+  %br/
+  = f.label :official_url
+  = f.text_field :official_url
+  %br/
+  = f.label :twitter_url
+  = f.text_field :twitter_url
+  %br/
+  = f.label :facebook_url
+  = f.text_field :facebook_url
+  %br/
+  = f.label :logo_url
+  = f.text_field :logo_url
+  %br/
+  = f.submit

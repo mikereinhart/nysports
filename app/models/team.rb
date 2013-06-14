@@ -14,4 +14,7 @@
 
 class Team < ActiveRecord::Base
   attr_accessible :facebook_url, :logo_url, :name, :official_url, :twitter_url
+
+  has_and_belongs_to_many :users
+  has_many :feeds
 end

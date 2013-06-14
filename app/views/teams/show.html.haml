@@ -1,0 +1,7 @@
+Team Info (Show Team)
+%p
+  Team's Feeds:
+  %ul
+    - @team.site_id.each do |site|
+      %li
+        = link_to "#{site['name']}", feed_path(feed)

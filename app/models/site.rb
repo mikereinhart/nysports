@@ -10,5 +10,8 @@
 #
 
 class Site < ActiveRecord::Base
-  attr_accessible :name, :site_url
+  attr_accessible :name, :site_url, :team_id
+
+  belongs_to :team
+  has_many :feeds
 end

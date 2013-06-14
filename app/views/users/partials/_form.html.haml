@@ -1,0 +1,16 @@
+= form_for @user do |f|
+  = f.label :name
+  = f.text_field :name
+  %br/
+  = f.label :email
+  = f.email_field :email
+  %br/
+  = f.label :password
+  = f.password_field :password
+  %br/
+  %p Which teams would you like to follow?
+  - @teams.each do |team|
+    %span
+      = team.name
+    = check_box_tag "user[team_ids][]", team.id, team.in?(@user.teams.to_a)
+  = f.submit

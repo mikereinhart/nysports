@@ -15,17 +15,17 @@ class TeamsController <ApplicationController
 
 	def new
 		@team = Team.new
-		@feeds = Feed.all
+		@sites = Site.all
 	end
 
 	def edit
 		@team = Team.find(params[:id])
-		@feeds = Feed.all
+		@sites = Site.all
 	end
 
 	def show
 		@team = Team.find(params[:id])
-		@feeds = Feed.all
+		@sites = Site.all
 	end
 
 	def update

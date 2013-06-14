@@ -1,0 +1,10 @@
+%h1 Index Teams Page
+%h3 ADMIN ONLY
+%ul
+  - @teams.each do |team|
+    %li
+      %p= link_to "#{team['name']}", team_path(team)
+      = link_to 'Edit Team', edit_team_path(team)
+      = link_to 'Delete Team', team_path(team), method: :delete
+      %br/
+      %br/
