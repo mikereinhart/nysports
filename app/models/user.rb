@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :feeds
 
   has_secure_password
+
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length { in: 5..20 }
 end
