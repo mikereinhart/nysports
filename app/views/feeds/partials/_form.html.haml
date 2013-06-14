@@ -1,0 +1,10 @@
+= form_for @feed do |f|
+	= f.label :name
+	= f.text_field :name
+	= f.label :summary
+	= f.text_field :summary
+	= f.label :feed_url
+	= f.text_field :feed_url
+	= f.label :published_at
+	= f.datetime :published_at
+	= f.submit

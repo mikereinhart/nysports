@@ -1,0 +1,10 @@
+%h1 Index Sites Page
+%h3 ADMIN ONLY
+%ul
+  - @sites.each do |site|
+    %li
+      %p= link_to "#{site['name']}", site_path(site)
+      = link_to 'Edit Site', edit_site_path(site)
+      = link_to "Delete Site", site_path(site), method: :delete
+      %br/
+      %br/
