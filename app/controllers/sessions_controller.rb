@@ -10,7 +10,7 @@ def create
   if authenticated_user
     session[:user_id] = authenticated_user.id
     message = 'You are authenticated!'
-    redirect_to root_path
+    redirect_to user_path
   else
     redirect_to sessions_new_path
   end

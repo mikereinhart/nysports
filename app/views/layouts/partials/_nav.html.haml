@@ -1,16 +1,40 @@
-%ul.side-nav
-  %li.active= link_to 'Home', root_path
-  %li.divider
-  %li= link_to 'Users', users_path
-  %li.divider
-  %li= link_to 'Teams', teams_path
-  %li.divider
-  %li= link_to 'Sites', sites_path
-  %li.divider
-  %li= link_to 'Feeds', feeds_path
-  %li.divider
-  %li= link_to 'New User', new_user_path
-  %li.divider
-  %li= link_to 'New Team', new_team_path
-  %li.divider
-  %li= link_to 'New Feed', new_feed_path
+.row
+  / Nav Sidebar
+  / This is source ordered to be pulled to the left on larger screens
+  .large-3.columns
+    .panel
+      %a{:href => "#"}
+        %img{:src => "http://placehold.it/300x240&text=[img]"}/
+      %h5
+        %a{:href => "#"} Your Name
+      .section-container.vertical-nav{"data-options" => "deep_linking: false; one_up: true", "data-section" => ""}
+        %section.section
+          %h5.title
+            %a{:href => '/'} Home
+        %section.section
+          %h5.title
+            %a{:href => "/users"} Users
+        %section.section
+          %h5.title
+            %a{:href => "/teams"} Teams
+        %section.section
+          %h5.title
+            %a{:href => "/sites"} Sites
+        %section.section
+          %h5.title
+            %a{:href => "/feeds"} Feeds
+        %section.section
+          %h5.title
+            %a{:href => "/users/new"} New User
+        %section.section
+          %h5.title
+            %a{:href => "/teams/new"} New Team
+        %section.section
+          %h5.title
+            %a{:href => "/sites/new"} New Site
+        %section.section
+          %h5.title
+            %a{:href => "/feeds/new"} New Feed
+
+
+
