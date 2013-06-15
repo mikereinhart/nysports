@@ -17,8 +17,8 @@
 # t6 = Team.create(name: 'Nets', logo_url: '', official_url: 'http://www.nba.com/nets/', twitter_url: 'https://twitter.com/BrooklynNets', facebook_url: 'https://www.facebook.com/BrooklynNets')
 
 
-# s1 = Site.create(name: 'Pro Football Talk', site_url: 'http://profootballtalk.nbcsports.com/')
-# s2 = Site.create(name: 'Big Blue Interactive', site_url: 'http://www.bigblueinteractive.com/')
+s1 = Site.create(name: 'Pro Football Talk', site_url: "http://profootballtalk.nbcsports.com/")
+s2 = Site.create(name: 'Big Blue Interactive', site_url: "http://www.bigblueinteractive.com/")
 # s3 = Site.create(name: 'Jets ESPN', site_url: 'http://espn.go.com/nfl/team/_/name/nyj/new-york-jets')
 # s4 = Site.create(name: 'Giants ESPN', site_url: 'http://espn.go.com/nfl/team/_/name/nyg/new-york-giants')
 # s5 = Site.create(name: 'Yankees ESPN', site_url: 'http://espn.go.com/mlb/team/_/name/nyy/new-york-yankees')
