@@ -36,15 +36,15 @@
     / Main Feed
     / This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens
     .large-8.columns
-      / Feed Entry
-      .row
-        .large-10.columns
-          %h3 Sports Feeds
-          %ul.sports_feed
-            - for entry in Feed.all(:limit => 30, :order => "published_at desc")
-              = link_to h(entry.name), entry.feed_url
-              %br/
-              = entry.summary
-              %br/
-              %hr/
+    / Feed Entry
+    .row
+      .large-10.columns
+        %h3 Sports Feeds
+        %ul.sports_feed
+          - for entry in Feed.all(:limit => 30, :order => "published_at desc")
+            = link_to h(entry.name), entry.feed_url
+            %br/
+            = entry.summary
+            %br/
+            %hr/
       / End Feed Entry
