@@ -3,7 +3,6 @@ Team.delete_all
 Site.delete_all
 Feed.delete_all
 
-
 u1 = User.create(name: 'Mike', password: 'reinhart', email: 'mike@sample.com')
 u2 = User.create(name: 'Bernard', password: 'doherty', email: 'bernard@sample.com')
 #u3 = User.create(name: '', password: '', email: '')
@@ -16,7 +15,6 @@ t4 = Team.create(name: 'Mets', logo_url: '', official_url: 'http://newyork.mets.
 t5 = Team.create(name: 'Knicks', logo_url: '', official_url: 'http://www.nba.com/knicks/', twitter_url: 'https://twitter.com/nyknicks', facebook_url: 'https://www.facebook.com/NYKnicks')
 t6 = Team.create(name: 'Nets', logo_url: '', official_url: 'http://www.nba.com/nets/', twitter_url: 'https://twitter.com/BrooklynNets', facebook_url: 'https://www.facebook.com/BrooklynNets')
 
-
 s1 = Site.create(name: 'Pro Football Talk', site_url: 'http://profootballtalk.nbcsports.com/')
 s2 = Site.create(name: 'Big Blue Interactive', site_url: 'http://www.bigblueinteractive.com/')
 s3 = Site.create(name: 'Jets ESPN', site_url: 'http://espn.go.com/nfl/team/_/name/nyj/new-york-jets')
@@ -26,7 +24,6 @@ s6 = Site.create(name: 'Mets ESPN', site_url: 'http://espn.go.com/mlb/team/_/nam
 s7 = Site.create(name: 'Knicks ESPN', site_url: 'http://espn.go.com/nba/team/_/name/ny/new-york-knicks')
 s8 = Site.create(name: 'Nets ESPN', site_url: 'http://espn.go.com/nba/team/_/name/bkn/brooklyn-nets')
 s9 = Site.create(name: 'Jets Bleacher Report', site_url: 'http://bleacherreport.com/new-york-jets')
-
 
 #Jets
 j1 = Feed.create(name: 'NYJ Official', feed_url: 'http://www.newyorkjets.com/cda-web/rss-module.htm?tagName=News')
@@ -52,12 +49,9 @@ y2 = Feed.create(name: 'Yahoo Yankees', feed_url: 'http://sports.yahoo.com/mlb/t
 m1 = Feed.create(name: 'NYPost Mets', feed_url: 'http://www.nypost.com/rss/mets.xml')
 m2 = Feed.create(name: 'NY Daily News Mets', feed_url: 'http://www.nydailynews.com/sports/baseball/mets/index_rss.xml') 
 
-
-
-=begin
 u1.teams << t1 << t3 << t6
 u2.teams << t2 << t4 << t5
-
+=begin
 t1.sites << s2 << s4
 t2.sites << s3 << s9
 t3.sites << s5
@@ -65,3 +59,4 @@ t4.sites << s6
 t5.sites << s7 
 t6.sites << s8
 =end
+

@@ -15,6 +15,6 @@ class Site < ActiveRecord::Base
   belongs_to :team
   has_many :feeds
 
-  validate :name, presence: true
-  validate :site_url, presence: true
+  validates :name, presence: true
+  validates :site_url, presence: true
 end
