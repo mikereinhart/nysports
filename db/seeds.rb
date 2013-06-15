@@ -1,3 +1,6 @@
+require 'nokogiri'
+require 'open-uri'
+
 User.delete_all
 Team.delete_all
 Site.delete_all
@@ -6,7 +9,6 @@ Feed.delete_all
 u1 = User.create(name: 'Mike', password: 'reinhart', email: 'mike@sample.com')
 u2 = User.create(name: 'Bernard', password: 'doherty', email: 'bernard@sample.com')
 #u3 = User.create(name: '', password: '', email: '')
-
 
 t1 = Team.create(name: 'Giants', logo_url: '', official_url: 'http://www.giants.com/', twitter_url: 'https://twitter.com/Giants', facebook_url: 'https://www.facebook.com/newyorkgiants')
 t2 = Team.create(name: 'Jets', logo_url: '', official_url: 'http://www.newyorkjets.com/', twitter_url: 'https://twitter.com/nyjets', facebook_url: 'https://www.facebook.com/Jets')
@@ -26,28 +28,23 @@ s8 = Site.create(name: 'Nets ESPN', site_url: 'http://espn.go.com/nba/team/_/nam
 s9 = Site.create(name: 'Jets Bleacher Report', site_url: 'http://bleacherreport.com/new-york-jets')
 
 #Jets
-#j1 = Feed.create(name: 'NYJ Official', feed_url: 'http://www.newyorkjets.com/cda-web/rss-module.htm?tagName=News')
-#j2 = Feed.create(name: 'NJ.com Jets', feed_url: 'http://blog.nj.com/jets_impact/atom.xml') 
-
+j1 = Feed.create(name: 'NYJ Official', feed_url: 'http://www.newyorkjets.com/cda-web/rss-module.htm?tagName=News')
+j2 = Feed.create(name: 'NJ.com Jets', feed_url: 'http://blog.nj.com/jets_impact/atom.xml') 
 #Giants
-#g1 = Feed.create(name: 'NJ.com Giants', feed_url: 'http://blog.nj.com/giants_impact/atom.xml')
-#g2 = Feed.create(name: 'NYPost Giants', feed_url: 'http://www.nypost.com/rss/giants.xml') 
-
+g1 = Feed.create(name: 'NJ.com Giants', feed_url: 'http://blog.nj.com/giants_impact/atom.xml')
+g2 = Feed.create(name: 'NYPost Giants', feed_url: 'http://www.nypost.com/rss/giants.xml') 
 #nets
-#n1 = Feed.create(name: 'NJ.com Nets', feed_url: 'http://blog.nj.com/nets_impact/atom.xml') 
-#n2 = Feed.create(name: 'NJ Daily News Nets', feed_url: 'http://www.nydailynews.com/sports/basketball/nets/index_rss.xml') 
-
+n1 = Feed.create(name: 'NJ.com Nets', feed_url: 'http://blog.nj.com/nets_impact/atom.xml') 
+n2 = Feed.create(name: 'NJ Daily News Nets', feed_url: 'http://www.nydailynews.com/sports/basketball/nets/index_rss.xml') 
 #knicks
-#k1 = Feed.create(name: 'NYPost Knicks', feed_url: 'http://www.nypost.com/rss/knicks.xml')
-#k2 = Feed.create(name: 'Yahoo Knicks', feed_url: 'http://sports.yahoo.com/nba/teams/nyk/rss.xml') 
-
+k1 = Feed.create(name: 'NYPost Knicks', feed_url: 'http://www.nypost.com/rss/knicks.xml')
+k2 = Feed.create(name: 'Yahoo Knicks', feed_url: 'http://sports.yahoo.com/nba/teams/nyk/rss.xml') 
 #yankees
-#y1 = Feed.create(name: 'NJ.com Yankees', feed_url: 'http://blog.nj.com/yankees_main/atom.xml')
-#y2 = Feed.create(name: 'Yahoo Yankees', feed_url: 'http://sports.yahoo.com/mlb/teams/nyy/rss.xml') 
-
+y1 = Feed.create(name: 'NJ.com Yankees', feed_url: 'http://blog.nj.com/yankees_main/atom.xml')
+y2 = Feed.create(name: 'Yahoo Yankees', feed_url: 'http://sports.yahoo.com/mlb/teams/nyy/rss.xml') 
 #mets
-#m1 = Feed.create(name: 'NYPost Mets', feed_url: 'http://www.nypost.com/rss/mets.xml')
-#m2 = Feed.create(name: 'NY Daily News Mets', feed_url: 'http://www.nydailynews.com/sports/baseball/mets/index_rss.xml') 
+m1 = Feed.create(name: 'NYPost Mets', feed_url: 'http://www.nypost.com/rss/mets.xml')
+m2 = Feed.create(name: 'NY Daily News Mets', feed_url: 'http://www.nydailynews.com/sports/baseball/mets/index_rss.xml') 
 
 u1.teams << t1 << t3 << t6
 u2.teams << t2 << t4 << t5

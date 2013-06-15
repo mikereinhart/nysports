@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20130614014425) do
     t.datetime "published_at"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.integer  "site_id"
+    t.string   "site_id"
   end
 
   create_table "feeds_users", :id => false, :force => true do |t|
