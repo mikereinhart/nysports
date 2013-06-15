@@ -51,6 +51,8 @@ m2 = Feed.create(name: 'NY Daily News Mets', feed_url: 'http://www.nydailynews.c
 
 u1.teams << t1 << t3 << t6
 u2.teams << t2 << t4 << t5
+
+u1.feeds << g1 << g2 << k1 << k2
 =begin
 t1.sites << s2 << s4
 t2.sites << s3 << s9
@@ -59,4 +61,3 @@ t4.sites << s6
 t5.sites << s7 
 t6.sites << s8
 =end
-
