@@ -8,7 +8,7 @@
       / Feed Entry
       .row
         .large-10.columns
-          %h3 Hey #{@user.name}! Here's what's new:
+          %h3 Hey #{@user.name.capitalize}! Here's what's new:
           %ul.sports_feed
             - for entry in @user.feeds(:limit => 30, :order => "published_at desc")
               = link_to h(entry.name), entry.feed_url
