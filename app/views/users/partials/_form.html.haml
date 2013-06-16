@@ -14,5 +14,5 @@
   - @teams.each do |team|
     %span
       = team.name
-    = check_box_tag "user[team_ids][]", team.id, team.in?(@user.teams.to_a)
+    = check_box_tag "user.teams", team.id, team.in?(@user.teams.to_a)
   = f.submit

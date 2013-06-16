@@ -5,35 +5,41 @@
     %a{:href => "#"}
       %img{:src => "http://placehold.it/300x240&text=[img]"}/
     %h5
-      %a{:href => "#"} Your Name
+      %a{:href => "#"}
+        -if current_user
+          #{@user.name}
     .section-container.vertical-nav{"data-options" => "deep_linking: false; one_up: true", "data-section" => ""}
       %section.section
         %h5.title
           %a{:href => '/'} Home
+      -if !current_user
+        %section.section
+          %h5.title
+            %a{:href => "/users/new"} New?
+        %section.section
+          %h5.title
+            %a{:href => "/sessions/new"} Login
+      -if current_user
+        %section.section
+          %h5.title
+            %a{:href => "/teams"} Teams
+        %section.section
+          %h5.title
+            %a{:href => "/sites"} Sites
+        %section.section
+          %h5.title
+            %a{:href => "/feeds"} Feeds
+      -if current_user && current_user.admin
+        %section.section
+          %h5.title
+            %a{:href => "/teams/new"} New Team
+        %section.section
+          %h5.title
+            %a{:href => "/sites/new"} New Site
+        %section.section
+          %h5.title
+            %a{:href => "/feeds/new"} New Feed
       %section.section
         %h5.title
-          %a{:href => "/users"} Users
-      %section.section
-        %h5.title
-          %a{:href => "/teams"} Teams
-      %section.section
-        %h5.title
-          %a{:href => "/sites"} Sites
-      %section.section
-        %h5.title
-          %a{:href => "/feeds"} Feeds
-      %section.section
-        %h5.title
-          %a{:href => "/users/new"} New User
-      %section.section
-        %h5.title
-          %a{:href => "/teams/new"} New Team
-      %section.section
-        %h5.title
-          %a{:href => "/sites/new"} New Site
-      %section.section
-        %h5.title
-          %a{:href => "/feeds/new"} New Feed
-
-
+          = link_to 'Logout', logout_path, method: :delete
 
