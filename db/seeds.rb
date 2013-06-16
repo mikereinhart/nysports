@@ -28,30 +28,34 @@ t6 = Team.create(name: 'Nets', logo_url: '', official_url: 'http://www.nba.com/n
 # s9 = Site.create(name: 'Jets Bleacher Report', site_url: 'http://bleacherreport.com/new-york-jets')
 
 
+
 #Jets
-j1 = Site.create(name: 'NYJ Official', site_url: 'http://www.newyorkjets.com/cda-web/rss-module.htm?tagName=News')
-j2 = Site.create(name: 'NJ.com Jets', site_url: 'http://blog.nj.com/jets_impact/atom.xml') 
+j1 = Site.create(name: 'NYJ Official', site_url: 'http://www.nydailynews.com/sports/football/jets/index_rss.xml')
+j2 = Site.create(name: 'NJ.com Jets', site_url: 'http://www.nypost.com/rss/jets.xml') 
 
 #Giants
-g1 = Site.create(name: 'NJ.com Giants', site_url: 'http://blog.nj.com/giants_impact/atom.xml')
+g1 = Site.create(name: 'NJ.com Giants', site_url: 'http://www.nydailynews.com/sports/football/giants/index_rss.xml')
 g2 = Site.create(name: 'NYPost Giants', site_url: 'http://www.nypost.com/rss/giants.xml') 
 
-#nets
-n1 = Site.create(name: 'NJ.com Nets', site_url: 'http://blog.nj.com/nets_impact/atom.xml') 
-n2 = Site.create(name: 'NJ Daily News Nets', site_url: 'http://sports.yahoo.com/nba/teams/bro/rss.xml') 
 
-#knicks
-k1 = Site.create(name: 'NYPost Knicks', site_url: 'http://www.nypost.com/rss/knicks.xml')
-k2 = Site.create(name: 'Yahoo Knicks', site_url: 'http://www.nba.com/knicks/rss.xml') 
+# #nets
+# n1 = Site.create(name: 'NJ.com Nets', site_url: 'http://blog.nj.com/nets_impact/atom.xml') 
+# n2 = Site.create(name: 'NJ Daily News Nets', site_url: 'http://www.nypost.com/rss/mets.xml') 
+# #http://www.nydailynews.com/sports/basketball/nets/index_rss.xml
 
-#yankSite
-y1 = Site.create(name: 'NJ.com Yankees', site_url: 'http://blog.nj.com/yankees_main/atom.xml')
-y2 = Site.create(name: 'Yahoo Yankees', site_url: 'http://sports.yahoo.com/mlb/teams/nyy/rss.xml') 
+# #knicks
+# k1 = Site.create(name: 'NYPost Knicks', site_url: 'http://www.nypost.com/rss/knicks.xml')
+# k2 = Site.create(name: 'Yahoo Knicks', site_url: 'http://www.nba.com/knicks/rss.xml') 
+# #http://www.nydailynews.com/sports/basketball/knicks/index_rss.xml
 
-#mets
-m1 = Site.create(name: 'NYPost Mets', site_url: 'http://www.nypost.com/rss/mets.xml')
-m2 = Site.create(name: 'NY Daily News Mets', site_url: 'http://mlb.mlb.com/partnerxml/gen/news/rss/nym.xml') 
+# #yankSite
+# y1 = Site.create(name: 'NJ.com Yankees', site_url: 'http://blog.nj.com/yankees_main/atom.xml')
+# y2 = Site.create(name: 'Yahoo Yankees', site_url: 'http://www.nydailynews.com/sports/baseball/yankees/index_rss.xml') 
 
+# #mets
+# m1 = Site.create(name: 'NYPost Mets', site_url: 'http://www.nypost.com/rss/mets.xml')
+# m2 = Site.create(name: 'NY Daily News Mets', site_url: 'http://mlb.mlb.com/partnerxml/gen/news/rss/nym.xml') 
+# #http://www.nydailynews.com/sports/baseball/mets/index_rss.xml
 
 # =begin
 # u1.teams << t1 << t3 << t6

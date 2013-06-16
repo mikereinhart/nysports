@@ -12,12 +12,16 @@
 #
 
 class Feed < ActiveRecord::Base
-  attr_accessible :feed_url, :name, :published_at, :summary, :site_id
+  attr_accessible :feed_url, :name, :published_at, :summary, :site_id, :thumbnail, :thumbnail_height, :thumbnail_width
 
   has_and_belongs_to_many :users
   belongs_to :site
 
   def self.update_from_feeds(feed_urls)
+    Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :url, :as => :thumbnail)
+    Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :height, :as => :thumbnail_height) 
+    Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :width, :as => :thumbnail_width) 
+
     feeds = Feedzirra::Feed.fetch_and_parse(feed_urls)
     feeds.each do |feed_data, feed|
       add_entries(feed.entries)
@@ -42,13 +46,15 @@ class Feed < ActiveRecord::Base
         unless exists? :site_id => entry.id
           create!( 
             :name         => entry.title,
-            :summary      => entry.summary,
+            :summary      => entry.summary.sanitize!,
             :feed_url          => entry.url,
             :published_at => entry.published,
-            :site_id         => entry.id
+            :thumbnail          => entry.thumbnail,
+            :thumbnail_height     => entry.thumbnail_height,
+            :thumbnail_width      => entry.thumbnail_width,
+            :site_id         => entry.id   
           )
         end
       end
     end
-
 end
