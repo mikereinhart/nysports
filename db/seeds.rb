@@ -15,41 +15,42 @@ t4 = Team.create(name: 'Mets', logo_url: '', official_url: 'http://newyork.mets.
 t5 = Team.create(name: 'Knicks', logo_url: '', official_url: 'http://www.nba.com/knicks/', twitter_url: 'https://twitter.com/nyknicks', facebook_url: 'https://www.facebook.com/NYKnicks')
 t6 = Team.create(name: 'Nets', logo_url: '', official_url: 'http://www.nba.com/nets/', twitter_url: 'https://twitter.com/BrooklynNets', facebook_url: 'https://www.facebook.com/BrooklynNets')
 
-s1 = Site.create(name: 'Pro Football Talk', site_url: 'http://profootballtalk.nbcsports.com/')
-s2 = Site.create(name: 'Big Blue Interactive', site_url: 'http://www.bigblueinteractive.com/')
-s3 = Site.create(name: 'Jets ESPN', site_url: 'http://espn.go.com/nfl/team/_/name/nyj/new-york-jets')
-s4 = Site.create(name: 'Giants ESPN', site_url: 'http://espn.go.com/nfl/team/_/name/nyg/new-york-giants')
-s5 = Site.create(name: 'Yankees ESPN', site_url: 'http://espn.go.com/mlb/team/_/name/nyy/new-york-yankees')
-s6 = Site.create(name: 'Mets ESPN', site_url: 'http://espn.go.com/mlb/team/_/name/nym/new-york-mets')
-s7 = Site.create(name: 'Knicks ESPN', site_url: 'http://espn.go.com/nba/team/_/name/ny/new-york-knicks')
-s8 = Site.create(name: 'Nets ESPN', site_url: 'http://espn.go.com/nba/team/_/name/bkn/brooklyn-nets')
-s9 = Site.create(name: 'Jets Bleacher Report', site_url: 'http://bleacherreport.com/new-york-jets')
+# s1 = Site.create(name: 'Pro Football Talk', site_url: "http://profootballtalk.nbcsports.com/")
+# s2 = Site.create(name: 'Big Blue Interactive', site_url: "http://www.bigblueinteractive.com/")
+# s3 = Site.create(name: 'Jets ESPN', site_url: 'http://espn.go.com/nfl/team/_/name/nyj/new-york-jets')
+# s4 = Site.create(name: 'Giants ESPN', site_url: 'http://espn.go.com/nfl/team/_/name/nyg/new-york-giants')
+# s5 = Site.create(name: 'Yankees ESPN', site_url: 'http://espn.go.com/mlb/team/_/name/nyy/new-york-yankees')
+# s6 = Site.create(name: 'Mets ESPN', site_url: 'http://espn.go.com/mlb/team/_/name/nym/new-york-mets')
+# s7 = Site.create(name: 'Knicks ESPN', site_url: 'http://espn.go.com/nba/team/_/name/ny/new-york-knicks')
+# s8 = Site.create(name: 'Nets ESPN', site_url: 'http://espn.go.com/nba/team/_/name/bkn/brooklyn-nets')
+# s9 = Site.create(name: 'Jets Bleacher Report', site_url: 'http://bleacherreport.com/new-york-jets')
 
 #Jets
-j1 = Feed.create(name: 'NYJ Official', feed_url: 'http://www.newyorkjets.com/cda-web/rss-module.htm?tagName=News')
-j2 = Feed.create(name: 'NJ.com Jets', feed_url: 'http://blog.nj.com/jets_impact/atom.xml') 
+j1 = Site.create(name: 'NYJ Official', site_url: 'http://www.nydailynews.com/sports/football/jets/index_rss.xml')
+j2 = Site.create(name: 'NJ.com Jets', site_url: 'http://www.nypost.com/rss/jets.xml') 
+
 #Giants
-g1 = Feed.create(name: 'NJ.com Giants', feed_url: 'http://blog.nj.com/giants_impact/atom.xml')
-g2 = Feed.create(name: 'NYPost Giants', feed_url: 'http://www.nypost.com/rss/giants.xml') 
+g1 = Site.create(name: 'NJ.com Giants', site_url: 'http://blog.nj.com/giants_impact/atom.xml')
+g2 = Site.create(name: 'NYPost Giants', site_url: 'http://www.nypost.com/rss/giants.xml') 
 #nets
-n1 = Feed.create(name: 'NJ.com Nets', feed_url: 'http://blog.nj.com/nets_impact/atom.xml') 
-n2 = Feed.create(name: 'NJ Daily News Nets', feed_url: 'http://www.nydailynews.com/sports/basketball/nets/index_rss.xml') 
+n1 = Site.create(name: 'NJ.com Nets', site_url: 'http://blog.nj.com/nets_impact/atom.xml') 
+n2 = Site.create(name: 'NJ Daily News Nets', site_url: 'http://www.nydailynews.com/sports/basketball/nets/index_rss.xml') 
 #knicks
-k1 = Feed.create(name: 'NYPost Knicks', feed_url: 'http://www.nypost.com/rss/knicks.xml')
-k2 = Feed.create(name: 'Yahoo Knicks', feed_url: 'http://sports.yahoo.com/nba/teams/nyk/rss.xml') 
+k1 = Site.create(name: 'NYPost Knicks', site_url: 'http://www.nypost.com/rss/knicks.xml')
+k2 = Site.create(name: 'Yahoo Knicks', site_url: 'http://sports.yahoo.com/nba/teams/nyk/rss.xml') 
 #yankees
-y1 = Feed.create(name: 'NJ.com Yankees', feed_url: 'http://blog.nj.com/yankees_main/atom.xml')
-y2 = Feed.create(name: 'Yahoo Yankees', feed_url: 'http://sports.yahoo.com/mlb/teams/nyy/rss.xml') 
+y1 = Site.create(name: 'NJ.com Yankees', site_url: 'http://blog.nj.com/yankees_main/atom.xml')
+y2 = Site.create(name: 'Yahoo Yankees', site_url: 'http://sports.yahoo.com/mlb/teams/nyy/rss.xml') 
 #mets
-m1 = Feed.create(name: 'NYPost Mets', feed_url: 'http://www.nypost.com/rss/mets.xml')
-m2 = Feed.create(name: 'NY Daily News Mets', feed_url: 'http://www.nydailynews.com/sports/baseball/mets/index_rss.xml') 
+m1 = Site.create(name: 'NYPost Mets', site_url: 'http://www.nypost.com/rss/mets.xml')
+m2 = Site.create(name: 'NY Daily News Mets', site_url: 'http://www.nydailynews.com/sports/baseball/mets/index_rss.xml') 
 
 u1.teams << t1 << t3 << t6
 u2.teams << t2 << t4 << t5
 
-u1.feeds << g1 << g2 << j1 << j2
-u2.feeds << m1 << m2 << y1 << y2
-u3.feeds << n1 << n2 << k1 << k2
+#u1.feeds << g1 << g2 << j1 << j2
+#u2.feeds << m1 << m2 << y1 << y2
+#u3.feeds << n1 << n2 << k1 << k2
 
 =begin
 t1.sites << s2 << s4

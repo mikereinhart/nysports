@@ -18,9 +18,12 @@ ActiveRecord::Schema.define(:version => 20130616182707) do
     t.text     "summary"
     t.string   "feed_url"
     t.datetime "published_at"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "site_id"
+    t.string   "thumbnail"
+    t.string   "thumbnail_height"
+    t.string   "thumbnail_width"
   end
 
   create_table "feeds_users", :id => false, :force => true do |t|
