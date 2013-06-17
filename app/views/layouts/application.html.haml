@@ -47,8 +47,8 @@
             %li
               .h5
                 = link_to "Edit Profile", edit_user_path(current_user)
-            %br
-            - @user.teams.each do |team|
+            %br  
+            - current_user.teams.each do |team|
               %li#dark
                 %h4#dark
                   = link_to "#{team.name}", team_path(team)
