@@ -1,4 +1,5 @@
 class UsersController <ApplicationController
+	before_filter :ensure_admin, only: [:index, :destroy]
 
 	def index
 		@users = User.all
@@ -31,7 +32,7 @@ class UsersController <ApplicationController
 	def update
 		@user = User.find(params[:id])
 		if @user.update_attributes(params['user'])
-			redirect_to users_path
+			redirect_to user_path(current_user)
 		else
 			render :new
 		end

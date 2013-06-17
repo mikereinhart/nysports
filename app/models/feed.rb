@@ -12,19 +12,19 @@
 #
 
 class Feed < ActiveRecord::Base
-  attr_accessible :feed_url, :name, :published_at, :summary, :site_id, :thumbnail, :thumbnail_height, :thumbnail_width, :team_article_name 
+  attr_accessible :feed_url, :name, :published_at, :summary, :site_id, :thumbnail, :thumbnail_height, :thumbnail_width, :team_id
 
   has_and_belongs_to_many :users
   belongs_to :site
-
-  def self.update_from_feeds(feed_urls, team)
+  belongs_to :team
+  
+  def self.update_from_feeds(feed_urls, team_id)
     Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :url, :as => :thumbnail)
     Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :height, :as => :thumbnail_height) 
-    Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :width, :as => :thumbnail_width) 
-    @team = team 
+    Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :width, :as => :thumbnail_width)  
     feeds = Feedzirra::Feed.fetch_and_parse(feed_urls)
     feeds.each do |feed_data, feed|
-      add_entries(feed.entries)
+      add_entries(feed.entries, team_id)
     end
   end
 
@@ -41,7 +41,7 @@ class Feed < ActiveRecord::Base
 
   private
 
-    def self.add_entries(entries)
+    def self.add_entries(entries, team_id)
       entries.each do |entry|
         unless exists? :site_id => entry.id
           
@@ -54,7 +54,7 @@ class Feed < ActiveRecord::Base
             :thumbnail_height     => entry.thumbnail_height,
             :thumbnail_width      => entry.thumbnail_width,
             :site_id         => entry.id,
-            :team_article_name   => @team
+            :team_id  => team_id
           )
 
         end

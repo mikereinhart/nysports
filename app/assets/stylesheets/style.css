@@ -1,0 +1,51 @@
+body {
+  background-color: #3591D1;
+}
+
+
+.brand-text {
+  font-family: 'Graduate';
+}
+
+.sans {
+  font-family: 'Inder';
+}
+
+.white {
+  color: white;
+}
+
+.side-nav li a {
+  color: white;
+}
+
+.top-text {
+  color: #E8341A;
+}
+
+.panel {
+  background: none;
+}
+
+.panel h5 {
+  color: white;
+}
+
+.panel p {
+  color: white;
+}
+ a {
+  color: white;
+ }
+
+ p {
+  color: white;
+ }
+
+ .dark {
+  color: #484D57;
+ }
+
+ #dark {
+  color: #484D57;
+ }

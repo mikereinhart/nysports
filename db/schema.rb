@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617001613) do
+ActiveRecord::Schema.define(:version => 20130617165340) do
 
   create_table "feeds", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130617001613) do
     t.string   "thumbnail_height"
     t.string   "thumbnail_width"
     t.string   "team_article_name"
+    t.integer  "team_id"
   end
 
   create_table "feeds_users", :id => false, :force => true do |t|

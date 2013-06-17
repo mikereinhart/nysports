@@ -11,49 +11,25 @@
     /     = render partial: 'layouts/partials/nav'
     /   .large-9.columns
     /     = yield
-
-
-
     / Nav Bar
     .row
       .large-12.columns
-        %h1
+        %h1.brand-text.top-text
           NYCSports
-          %small All your teams. All your news. In one place.
+          %small.white All your teams. All your news. In one place.
         %hr/
     / End Nav
     / Main Page Content and Sidebar
     .row
-      / .large-2.columns  
-      /   = render partial: 'layouts/partials/nav'
       / Sidebar
       %aside.large-3.columns
-        %h5 Getting around:
-        %ul.side-nav
-          %li
-            = link_to "Main", root_path
-          - if !current_user
-            %li
-              = link_to "Sign Up", new_user_path
-            %li
-              = link_to "Login", sessions_new_path
-          - if current_user
-            %li
-              = link_to "My Home", user_path(current_user)
-          %li
-            = link_to "Teams", teams_path
-          - if current_user && current_user.admin
-            %li
-              = link_to "New Team", new_team_path
-            %li
-              = link_to "New Site", new_site_path
-            %li
-              = link_to "New Feed", new_feed_path
-          %li
-            = link_to 'Logout', logout_path, method: :delete
-        .panel
-          %h5 Our Story
-          %p We love New York sports teams, but we hate traveling to ever corner of the web to get information from different sources. That's why there's NYCSports. All your teams. All their stories. One place.
+        %h5.brand-text.white
+          Getting around:
+          %ul.side-nav.sans-serif#white
+            = render partial: '/layouts/partials/nav'
+        .panel.sans
+          %h5.white Our Story
+          %p.dark-text We love New York sports teams, but we hate traveling to ever corner of the web to get information from different sources. That's why there's NYCSports. All your teams. All their stories. One place.
         /   %a{:href => "#"} Read More &rarr;
       / End Sidebar
       / Main Blog Content
@@ -98,7 +74,7 @@
         %hr/
         .row
           .large-6.columns
-            %p &copy; Copyright Mike and Bernard - GA WDI5
+            %p.white &copy; Copyright Mike and Bernard - GA WDI5
           .large-6.columns
             %ul.inline-list.right
               %li

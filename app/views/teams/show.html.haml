@@ -1,7 +1,19 @@
-Team Info (Show Team)
+Team Info
 %p
   Team's Feeds:
   %ul
-    - @team.site_id.each do |site|
+    - @team.feeds.each do |feed|
       %li
-        = link_to "#{site['name']}", feed_path(feed)
+        = link_to feed.name, feed.feed_url
+
+
+
+
+/ %h2 #{@team.name.capitalize}'s Feeds:
+/ %ul.sports_feed
+/   - for entry in Feed.all(:limit => 30, :order => "published_at desc")
+/     = link_to h(entry.name), entry.feed_url
+/     %br/
+/     = entry.summary
+/     %br/
+/     %hr/

@@ -1,5 +1,6 @@
 class TeamsController <ApplicationController
-
+	before_filter :ensure_admin, only: [:new, :create, :edit, :update, :destroy]
+	
 	def index
 		@teams = Team.all
 	end

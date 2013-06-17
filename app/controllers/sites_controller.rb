@@ -1,4 +1,5 @@
 class SitesController < ApplicationController
+	before_filter :ensure_admin, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
 		@sites = Site.all

@@ -1,46 +1,38 @@
-.row
-  / Nav Sidebar
-  / This is source ordered to be pulled to the left on larger screens
-  .panel
+/ Right now this is only used on the side navigation bar
+%li.link
+  %h5
+    = link_to "Main", root_path
+- if !current_user
+  %li.link
     %h5
-      %a{:href => "#"}
-        / - if current_user
-        /   #{@user.name.capitalize}
-    .section-container.vertical-nav{"data-options" => "deep_linking: false; one_up: true", "data-section" => ""}
-      %section.section
-        %h5.title
-          %a{:href => '/'} Home
-      - if !current_user
-        %section.section
-          %h5.title
-            %a{:href => "/users/new"} Sign Up
-        %section.section
-          %h5.title
-            %a{:href => "/sessions/new"} Login
-      - if current_user
-        %section.section
-          %h5.title
-            = link_to "My Feeds", user_path(current_user)
-      %section.section
-        %h5.title
-          %a{:href => "/teams"} Teams
-      / %section.section
-      /   %h5.title
-      /     %a{:href => "/sites"} Sites
-      / %section.section
-      /   %h5.title
-      /     %a{:href => "/feeds"} Feeds
-      - if current_user && current_user.admin
-        %section.section
-          %h5.title
-            %a{:href => "/teams/new"} New Team
-        %section.section
-          %h5.title
-            %a{:href => "/sites/new"} New Site
-        %section.section
-          %h5.title
-            %a{:href => "/feeds/new"} New Feed
-      %section.section
-        %h5.title
-          = link_to 'Logout', logout_path, method: :delete
+      = link_to "Sign Up", new_user_path
+  %li.link
+    %h5
+      = link_to "Login", sessions_new_path
+- if current_user
+  %li
+    %h5
+      = link_to "My Home", user_path(current_user)
+  %li
+    .h5
+      = link_to "Edit Profile", edit_user_path(current_user)
+  %br  
+  - current_user.teams.each do |team|
+    %li#dark
+      %h4#dark
+        = link_to "#{team.name}", team_path(team)
+%br
+%li
+  %h5
+    = link_to "Teams", teams_path
+- if current_user && current_user.admin
+  %li
+    %h5
+      = link_to "New Team", new_team_path
+  %li
+    %h5
+      = link_to "New Site", new_site_path
+%li
+  %h5.dark
+    = link_to 'Logout', logout_path, method: :delete
 
