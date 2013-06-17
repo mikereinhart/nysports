@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20130617165340) do
     t.datetime "published_at"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.integer  "site_id"
+    t.string   "site_id"
     t.string   "thumbnail"
     t.string   "thumbnail_height"
     t.string   "thumbnail_width"
