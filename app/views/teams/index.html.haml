@@ -1,10 +1,9 @@
-%h1 Index Teams Page
-%h3 ADMIN ONLY
+%h1 New York Sports Teams
 %ul
   - @teams.each do |team|
     %li
       %p= link_to "#{team['name']}", team_path(team)
-      = link_to 'Edit Team', edit_team_path(team)
-      = link_to 'Delete Team', team_path(team), method: :delete
-      %br/
+      - if current_user && current_user.admin
+        = link_to 'Edit Team', edit_team_path(team)
+        = link_to 'Delete Team', team_path(team), method: :delete
       %br/

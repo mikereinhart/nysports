@@ -1,9 +1,5 @@
 %body
   / Header and Nav
-  .row
-    .large-10.columns
-      .panel
-        %h1 NYC Sports
   / End Header and Nav
   .row
     / Nav Sidebar
@@ -11,6 +7,7 @@
     
     / Main Feed
     / This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens
+<<<<<<< HEAD
   .large-8.columns
   / Feed Entry
   .row
@@ -29,3 +26,18 @@
 
 
         
+=======
+    .large-8.columns
+    / Feed Entry
+    .row
+      .large-10.columns
+        %h3 Hey #{@user.name.capitalize}! Here's what's new:
+      %ul.sports_feed
+        - for entry in Feed.all(:limit => 80, :order => "published_at desc")
+          %img{:src => entry.thumbnail}/
+          = link_to h(entry.name), entry.feed_url
+          = raw truncate(strip_tags(entry.summary), :length => 300)
+          %br/
+          %hr/
+  / End Feed Entry
+>>>>>>> 69d1d09419b5bb0372f610f246f320d6fa29495f

@@ -6,8 +6,119 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    / .row
+    /   .large-2.columns	
+    /     = render partial: 'layouts/partials/nav'
+    /   .large-9.columns
+    /     = yield
+
+
+
+    / Nav Bar
     .row
-      .large-3.columns	
-        = render partial: 'layouts/partials/nav'
-      .large-9.columns
+      .large-12.columns
+        %h1
+          NYCSports
+          %small All your teams. All your news. In one place.
+        %hr/
+    / End Nav
+    / Main Page Content and Sidebar
+    .row
+      / .large-2.columns  
+      /   = render partial: 'layouts/partials/nav'
+      / Sidebar
+      %aside.large-3.columns
+        %h5 Getting around:
+        %ul.side-nav
+          %li
+            = link_to "Main", root_path
+          - if !current_user
+            %li
+              = link_to "Sign Up", new_user_path
+            %li
+              = link_to "Login", sessions_new_path
+          - if current_user
+            %li
+              = link_to "My Home", user_path(current_user)
+          %li
+            = link_to "Teams", teams_path
+          - if current_user && current_user.admin
+            %li
+              = link_to "New Team", new_team_path
+            %li
+              = link_to "New Site", new_site_path
+            %li
+              = link_to "New Feed", new_feed_path
+          %li
+            = link_to 'Logout', logout_path, method: :delete
+        .panel
+          %h5 Our Story
+          %p We love New York sports teams, but we hate traveling to ever corner of the web to get information from different sources. That's why there's NYCSports. All your teams. All their stories. One place.
+        /   %a{:href => "#"} Read More &rarr;
+      / End Sidebar
+      / Main Blog Content
+      .large-9.columns{:role => "content"}
         = yield
+        / %article
+        /   %h3
+        /     %a{:href => "#"} Blog Post Title
+        /   %h6
+        /     Written by
+        /     %a{:href => "#"} John Smith
+        /     on August 12, 2012.
+        /   .row
+        /     .large-6.columns
+        /       %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa.
+        /       %p Boudin aliqua adipisicing rump corned beef. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+        /     .large-6.columns
+        /       %img{:src => "http://placehold.it/400x240&text=[img]"}/
+        /   %p Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+        /   %p Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+        / %hr/
+        / %article
+        /   %h3
+        /     %a{:href => "#"} Blog Post Title
+        /   %h6
+        /     Written by
+        /     %a{:href => "#"} John Smith
+        /     on August 12, 2012.
+        /   .row
+        /     .large-6.columns
+        /       %p Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa.
+        /       %p Boudin aliqua adipisicing rump corned beef. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+        /     .large-6.columns
+        /       %img{:src => "http://placehold.it/400x240&text=[img]"}/
+        /   %p Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+        /   %p Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.
+      / End Main Content
+    / End Main Content and Sidebar
+    / Footer
+    %footer.row
+      .large-12.columns
+        %hr/
+        .row
+          .large-6.columns
+            %p &copy; Copyright Mike and Bernard - GA WDI5
+          .large-6.columns
+            %ul.inline-list.right
+              %li
+                = link_to "Main", root_path
+              - if !current_user
+                %li
+                  = link_to "Sign Up", new_user_path
+                %li
+                  = link_to "Login", sessions_new_path
+              - if current_user
+                %li
+                  = link_to "My Home", user_path(current_user)
+              %li
+                = link_to "Teams", teams_path
+              - if current_user && current_user.admin
+                %li
+                  = link_to "New Team", new_team_path
+                %li
+                  = link_to "New Site", new_site_path
+                %li
+                  = link_to "New Feed", new_feed_path
+              %li
+                = link_to 'Logout', logout_path, method: :delete

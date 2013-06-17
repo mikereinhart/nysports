@@ -26,8 +26,6 @@ class UsersController <ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@teams = Team.all
-		#@feeds = Feed.all
 	end
 
 	def update
