@@ -10,8 +10,9 @@
     .large-8.columns
     / Feed Entry
     .row
-      .large-10.columns
-        %h3 Hey #{@user.name.capitalize}! Here's what's new:
+      .large-10.columns.brand-text
+        %h3.dark.brand-text Hey #{@user.name.capitalize}! Find out what's new:
+        %h5.white.sans Get started by using the nav bar to select what team you want to read about
       %ul.sports_feed
         - for entry in Feed.all(:limit => 80, :order => "published_at desc")
           %img{:src => entry.thumbnail}/

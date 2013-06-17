@@ -1,7 +1,5 @@
-Team Info (Show Team)
-%p
-  Team's Feeds:
-  %ul
-    - @team.site_id.each do |site|
-      %li
-        = link_to "#{site['name']}", feed_path(feed)
+#{@team.name.capitalize}'s Feeds:
+%ul
+  - @team.feeds.each do |feed|
+    %li
+      = link_to "#{feed['name']}", feed_path(feed)
