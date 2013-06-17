@@ -19,14 +19,13 @@
     .large-8.columns  
   .row
     - for entry in Feed.all(:limit => 80, :order => "published_at desc")
-      %img{:src => entry.thumbnail}/
-      = link_to h(entry.name), entry.feed_url
-      = raw truncate(strip_tags(entry.summary), :length => 300)
-      %br/
-      %hr/
+      - if entry.team_article_name == "yanks"
+        %img{:src => entry.thumbnail}/
+        = link_to h(entry.name), entry.feed_url
+        = raw truncate(strip_tags(entry.summary), :length => 300)
+        %br
+        %hr/
 / End Feed Entry
-
-
 
 
         

@@ -39,7 +39,7 @@ g2 = Site.create(name: 'NYPost Giants', site_url: 'http://www.nypost.com/rss/gia
 
 
 # #nets
-# n1 = Site.create(name: 'NJ.com Nets', site_url: 'http://blog.nj.com/nets_impact/atom.xml') 
+# n1 = Site.create(name: 'NJ.com Nets', site_url: 'http://www.nydailynews.com/sports/basketball/nets/index_rss.xml') 
 # n2 = Site.create(name: 'NJ Daily News Nets', site_url: 'http://www.nypost.com/rss/mets.xml') 
 # #http://www.nydailynews.com/sports/basketball/nets/index_rss.xml
 
@@ -57,7 +57,7 @@ g2 = Site.create(name: 'NYPost Giants', site_url: 'http://www.nypost.com/rss/gia
 # m2 = Site.create(name: 'NY Daily News Mets', site_url: 'http://mlb.mlb.com/partnerxml/gen/news/rss/nym.xml') 
 # #http://www.nydailynews.com/sports/baseball/mets/index_rss.xml
 
-# =begin
+
 # u1.teams << t1 << t3 << t6
 # u2.teams << t2 << t4 << t5
 
@@ -67,4 +67,4 @@ g2 = Site.create(name: 'NYPost Giants', site_url: 'http://www.nypost.com/rss/gia
 # t4.sites << s6
 # t5.sites << s7 
 # t6.sites << s8
-# =end
+
