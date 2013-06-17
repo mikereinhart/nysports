@@ -12,19 +12,19 @@
 #
 
 class Feed < ActiveRecord::Base
-  attr_accessible :feed_url, :name, :published_at, :summary, :site_id, :thumbnail, :thumbnail_height, :thumbnail_width
+  attr_accessible :feed_url, :name, :published_at, :summary, :site_id, :thumbnail, :thumbnail_height, :thumbnail_width, :team_article_name 
 
   has_and_belongs_to_many :users
   belongs_to :site
   belongs_to :team
 
-
 #This method relies on the 'add_entries' method to update the feeds table. 
-  def self.update_from_feeds(feed_urls)
+
+  def self.update_from_feeds(feed_urls, team)
     Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :url, :as => :thumbnail)
     Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :height, :as => :thumbnail_height) 
     Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :width, :as => :thumbnail_width) 
-
+    @team = team 
     feeds = Feedzirra::Feed.fetch_and_parse(feed_urls)
     feeds.each do |feed_data, feed|
       add_entries(feed.entries)
@@ -50,16 +50,19 @@ class Feed < ActiveRecord::Base
     def self.add_entries(entries)
       entries.each do |entry|
         unless exists? :site_id => entry.id
+          
           create!( 
-            :name         => entry.title,
+            :name         => entry.title.sanitize!,
             :summary      => entry.summary.sanitize!,
             :feed_url          => entry.url,
             :published_at => entry.published,
             :thumbnail          => entry.thumbnail,
             :thumbnail_height     => entry.thumbnail_height,
             :thumbnail_width      => entry.thumbnail_width,
-            :site_id         => entry.id   
+            :site_id         => entry.id,
+            :team_article_name   => @team
           )
+
         end
       end
     end

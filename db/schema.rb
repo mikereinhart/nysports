@@ -11,19 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130616182707) do
+ActiveRecord::Schema.define(:version => 20130617001613) do
 
   create_table "feeds", :force => true do |t|
     t.string   "name"
     t.text     "summary"
     t.string   "feed_url"
     t.datetime "published_at"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.integer  "site_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "site_id"
     t.string   "thumbnail"
     t.string   "thumbnail_height"
     t.string   "thumbnail_width"
+    t.string   "team_article_name"
   end
 
   create_table "feeds_users", :id => false, :force => true do |t|

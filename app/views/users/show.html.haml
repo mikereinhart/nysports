@@ -7,6 +7,26 @@
     
     / Main Feed
     / This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens
+<<<<<<< HEAD
+  .large-8.columns
+  / Feed Entry
+  .row
+    .large-12.columns
+      %h3 Sports Feeds
+    .large-8.columns  
+  .row
+    - for entry in Feed.all(:limit => 80, :order => "published_at desc")
+      - if entry.team_article_name == "yanks"
+        %img{:src => entry.thumbnail}/
+        = link_to h(entry.name), entry.feed_url
+        = raw truncate(strip_tags(entry.summary), :length => 300)
+        %br
+        %hr/
+/ End Feed Entry
+
+
+        
+=======
     .large-8.columns
     / Feed Entry
     .row
@@ -21,3 +41,4 @@
           %br/
           %hr/
   / End Feed Entry
+>>>>>>> 69d1d09419b5bb0372f610f246f320d6fa29495f

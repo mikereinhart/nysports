@@ -32,6 +32,7 @@ j2 = Site.create(name: 'NJ.com Jets', site_url: 'http://www.nypost.com/rss/jets.
 #Giants
 g1 = Site.create(name: 'NJ.com Giants', site_url: 'http://blog.nj.com/giants_impact/atom.xml')
 g2 = Site.create(name: 'NYPost Giants', site_url: 'http://www.nypost.com/rss/giants.xml') 
+
 #nets
 n1 = Site.create(name: 'NJ.com Nets', site_url: 'http://blog.nj.com/nets_impact/atom.xml') 
 n2 = Site.create(name: 'NJ Daily News Nets', site_url: 'http://www.nydailynews.com/sports/basketball/nets/index_rss.xml') 
@@ -60,3 +61,4 @@ t4.sites << s6
 t5.sites << s7 
 t6.sites << s8
 =end
+
