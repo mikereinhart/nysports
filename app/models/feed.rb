@@ -18,6 +18,8 @@ class Feed < ActiveRecord::Base
   belongs_to :site
   belongs_to :team
 
+
+#This method relies on the 'add_entries' method to update the feeds table. 
   def self.update_from_feeds(feed_urls)
     Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :url, :as => :thumbnail)
     Feedzirra::Feed.add_common_feed_entry_element("media:content", :value => :height, :as => :thumbnail_height) 
@@ -41,7 +43,10 @@ class Feed < ActiveRecord::Base
   end
 
   private
-
+#This method is what populates our feeds table in our database. It automatically creates entries.
+#Thus far we were unsuccessful in populating the table with any columns besides what feedszirra makes.
+#Ideally, feeds would have been given a site_id, which would connect them to the site they came from, 
+#but no such pairing was accomplished.
     def self.add_entries(entries)
       entries.each do |entry|
         unless exists? :site_id => entry.id

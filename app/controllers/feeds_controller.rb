@@ -1,4 +1,5 @@
 class FeedsController < ApplicationController
+	before_filter :ensure_admin, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
 		@feeds = Feed.all

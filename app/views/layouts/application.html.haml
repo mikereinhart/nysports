@@ -11,9 +11,6 @@
     /     = render partial: 'layouts/partials/nav'
     /   .large-9.columns
     /     = yield
-
-
-
     / Nav Bar
     .row
       .large-12.columns
@@ -24,50 +21,12 @@
     / End Nav
     / Main Page Content and Sidebar
     .row
-      / .large-2.columns  
-      /   = render partial: 'layouts/partials/nav'
       / Sidebar
       %aside.large-3.columns
-        %h5.brand-text.white Getting around:
-        %ul.side-nav.sans-serif#white
-          %li.link
-            %h5
-              = link_to "Main", root_path
-          - if !current_user
-            %li.link
-              %h5
-                = link_to "Sign Up", new_user_path
-            %li.link
-              %h5
-                = link_to "Login", sessions_new_path
-          - if current_user
-            %li
-              %h5
-                = link_to "My Home", user_path(current_user)
-            %li
-              .h5
-                = link_to "Edit Profile", edit_user_path(current_user)
-            %br  
-            - current_user.teams.each do |team|
-              %li#dark
-                %h4#dark
-                  = link_to "#{team.name}", team_path(team)
-          %br
-          %li
-            %h5
-              = link_to "Teams", teams_path
-          - if current_user && current_user.admin
-            %li
-              %h5
-                = link_to "New Team", new_team_path
-            %li
-              %h5
-                = link_to "New Site", new_site_path
-            / %li
-            /   = link_to "New Feed", new_feed_path
-          %li
-            %h5.dark
-              = link_to 'Logout', logout_path, method: :delete
+        %h5.brand-text.white
+          Getting around:
+          %ul.side-nav.sans-serif#white
+            = render partial: '/layouts/partials/nav'
         .panel.sans
           %h5.white Our Story
           %p.dark-text We love New York sports teams, but we hate traveling to ever corner of the web to get information from different sources. That's why there's NYCSports. All your teams. All their stories. One place.
